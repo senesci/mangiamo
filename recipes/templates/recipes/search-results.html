@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div style="max-width: 650px; margin: 0 auto;">
+        <h2>Results</h2>
+        <form method="POST" action="/search">
+            {% csrf_token %}
+            <input type="text" name="query" autofocus required value="{{ search_term }}">
+            <button type="submit">Search</button>
+        </form>
+        {% if results %}
+            <div class="grid recipe-grid">
+            {% for recipe in results %}
+                <article class="recipe-grid-item" onclick="window.location.href = '/recipes/{{ recipe.id }}'">
+                    <h3 style="font-size: x-large; margin-bottom: 0;">{{ recipe.title|truncatechars:30 }}</h3>
+                    <a style="font-size: large; margin-bottom: 10px;" href="/authors/{{ recipe.author.id }}">{{ recipe.author }}</a>
+                </article>
+            {% endfor %}
+            </div>
+        {% else %}
+            <p>There are no results to display.</p>
+        {% endif %}
+    </div>
+{% endblock %}

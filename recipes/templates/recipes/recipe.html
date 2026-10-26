@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+    <article class="recipe">
+        <h2 class="center">{{ recipe.title }}</h2>
+        <p class="center" style="margin: 0;">By <a href="/authors/{{ recipe.author.id }}">{{ recipe.author }}</a></p>
+        <p class="recipe-body">{{ markdown|safe }}</p>
+    </article>
+{% endblock %}

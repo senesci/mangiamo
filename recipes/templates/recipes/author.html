@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2 class="center">{{ author.name }}</h2>
+    <p class="center">{{ author.details }}</p>
+    {% if recipes %}
+        <h3>Recipes</h3>
+        <div class="grid recipe-grid">
+            {% for recipe in recipes %}
+                <article class="recipe-grid-item" onclick="window.location.href = '/recipes/{{ recipe.id }}'">
+                    <h3 style="font-size: x-large; margin-bottom: 0;">{{ recipe.title|truncatechars:30 }}</h3>
+                </article>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="center">{{ author.name }} has no recipes yet.</p>
+    {% endif %}
+{% endblock %}

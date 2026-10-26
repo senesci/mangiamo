@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'pico.min.css' %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Mangiamo!</title>
+</head>
+<body class="container">
+    <header class="hidden-print">
+        <nav>
+          <ul>
+            <li><strong class="nav-title"><i>Mangiamo!</i></strong></li>
+          </ul>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/search">Search</a></li>
+              <li><a href="/about">About</a></li>
+          </ul>
+        </nav>
+    </header>
+    <main>{% block content %}{% endblock %}</main>
+</body>
+</html>

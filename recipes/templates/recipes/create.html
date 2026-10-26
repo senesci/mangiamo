@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div>
+        <h2 class="center">Create a Recipe</h2>
+        <form method="POST" action="/create">
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit">Submit</button>
+        </form>
+        <small>Please note: Once you submit this form, <strong style="text-decoration: underline">your recipe will still need to be manually approved</strong>.</small>
+    </div>
+{% endblock %}

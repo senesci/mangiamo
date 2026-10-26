@@ -1,0 +1,51 @@
+:root {
+    --pico-font-size: x-large;
+}
+
+.recipe-grid {
+    display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+.recipe-grid article button {
+    width: 100%;
+}
+
+.recipe-grid-item {
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.recipe-grid-item:hover {
+    cursor: pointer;
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav ul {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    --pico-font-size: large;
+}
+
+@media print {
+  .hidden-print {
+    display: none !important;
+  }
+    .recipe {
+        box-shadow: none !important;
+        padding: 0 !important;
+    }
+
+    main, body {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+}

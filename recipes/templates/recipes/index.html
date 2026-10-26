@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+    <p>Welcome to Mangiamo! This is <i>the</i> place to find delicious traditional recipes. Mangiamo has a variety of recipes from different generations, for the world to see! We hope you enjoy!  <i>Mangia!</i></p>
+    {% if recipes %}
+        <h2>Recipes</h2>
+        <div class="grid recipe-grid">
+        {% for recipe in recipes %}
+            <article class="recipe-grid-item" onclick="window.location.href = '/recipes/{{ recipe.id }}'">
+                <h3 style="font-size: x-large; margin-bottom: 0;">{{ recipe.title|truncatechars:30 }}</h3>
+                <a style="font-size: large; margin-bottom: 10px;" href="/authors/{{ recipe.author.id }}">{{ recipe.author }}</a>
+            </article>
+        {% endfor %}
+        </div>
+    {% else %}
+        <p>No recipes are available.</p>
+    {% endif %}
+{% endblock %}

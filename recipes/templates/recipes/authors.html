@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% if authors %}
+        <h2>Artisans</h2>
+        <div class="grid recipe-grid">
+        {% for author in authors %}
+            <article class="recipe-grid-item" onclick="window.location.href = '/authors/{{ author.id }}'">
+                <h3 style="font-size: x-large; margin-bottom: 0;">{{ author.name }}</h3>
+            </article>
+        {% endfor %}
+        </div>
+    {% else %}
+        <p>There aren't any authors yet.</p>
+    {% endif %}
+{% endblock %}
